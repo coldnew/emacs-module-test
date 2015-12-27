@@ -1,0 +1,3 @@
+[submodule "emacs"]
+	path = emacs
+	url = http://git.sv.gnu.org/r/emacs.git
