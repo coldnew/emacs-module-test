@@ -1,0 +1,7 @@
+#+TITLE: emacs dynamic modules test
+
+# Badge
+[[http://www.gnu.org/licenses/gpl-3.0.txt][https://img.shields.io/badge/license-GPL_3-green.svg?dummy]]
+[[https://travis-ci.org/coldnew/emacs-module-test][https://travis-ci.org/coldnew/emacs-module-test.svg?branch=master]]
+
+emacs dynamic module feature test
