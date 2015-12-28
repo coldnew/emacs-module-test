@@ -4,4 +4,87 @@
 [[http://www.gnu.org/licenses/gpl-3.0.txt][https://img.shields.io/badge/license-GPL_3-green.svg?dummy]]
 [[https://travis-ci.org/coldnew/emacs-module-test][https://travis-ci.org/coldnew/emacs-module-test.svg?branch=master]]
 
-emacs dynamic module feature test
+This is my test area for upcomming emacs25's =dynamic module= feature.
+
+** C
+
+*** hello - return string from function
+
+[[file:c/hello/hello-core.c]] is a really simple implement for dynamie module,
+
+it just implement a C version of follwoing function.
+
+#+BEGIN_SRC emacs-lisp
+  (defun hello-c ()
+    "Hello Emacs")
+#+END_SRC
+
+*** fib
+
+[[file:c/fib/fib-core.c]] implement recursive and loop version of fibonacci
+function, I also add the emacs-lisp version to compare the benchmark.
+
+You can use
+
+: make benchmark
+
+to get the result.
+
+Followin are the benchmark test under my computer (Macbook Pro 2015, Early)
+
+#+BEGIN_EXAMPLE
+calculating: fib-c
+Elapsed time: 1.389031s
+
+calculating: fib-loop-c
+Elapsed time: 0.000081s
+
+calculating: fib-elisp
+Elapsed time: 199.269212s
+
+calculating: fib-loop-elisp
+Elapsed time: 0.002424s
+#+END_EXAMPLE
+
+** C++
+
+*** sc
+
+[[file:cpp/sc/sc-core.cpp]] implements simple trim function like [[https://github.com/magnars/s.el][s.el]] does,
+currently I only implement following function
+
+- sc-trim-left
+- sc-trim-right
+- sc-trim
+
+The benchmark is worse than [[https://github.com/magnars/s.el][s.el]].
+
+#+BEGIN_EXAMPLE
+calculating: s-trim-left
+Elapsed time: 0.000780s
+
+calculating: sc-trim-left
+Elapsed time: 0.044819s
+
+calculating: s-trim-right
+Elapsed time: 0.008290s
+
+calculating: sc-trim-right
+Elapsed time: 0.120419s (0.022611s in 1 GCs)
+
+calculating: s-trim
+Elapsed time: 0.007935s
+
+calculating: sc-trim
+Elapsed time: 0.127986s
+#+END_EXAMPLE
+
+** Reference
+
+~[1]~ [[https://github.com/jwiegley/emacs/blob/54617ada51e49af04f0c3f609e724aafcaf0df16/modules/mod-test/mod-test.c][emacs/modules/mod-test/mod-test.c]]
+
+~[2]~ https://lists.gnu.org/archive/html/emacs-devel/2015-02/msg00960.html
+
+~[3]~[[http://syohex.hatenablog.com/entry/2015/12/16/185458][ejectで學ぶ Dynamic module 機能]]
+
+~[4]~ [[http://qiita.com/syohex/items/fa71f1c61107b5e30c43][Emacsに mrubyを組み込んでみた]]
