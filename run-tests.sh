@@ -8,3 +8,6 @@ P=$(PWD)
 
 # Test for C code
 cd c && make && cd $P
+
+# Test for C++ code
+cd cpp && make && cd $P
