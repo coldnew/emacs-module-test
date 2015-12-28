@@ -6,9 +6,11 @@
 
 This is my test area for upcomming emacs25's =dynamic module= feature.
 
-** C
+* C
 
-*** hello - return string from function
+The easist way to implement the emacs module is use C language.
+
+** hello
 
 [[file:c/hello/hello-core.c][hello-core.c]] is a really simple implement for dynamie module,
 
@@ -19,7 +21,7 @@ it just implement a C version of follwoing function.
     "Hello Emacs")
 #+END_SRC
 
-*** fib
+** fib
 
 [[file:c/fib/fib-core.c][fib-core.c]] implement recursive and loop version of fibonacci
 function, I also add the emacs-lisp version to compare the benchmark.
@@ -46,40 +48,42 @@ calculating: fib-loop-elisp
 Elapsed time: 0.002424s
 #+END_EXAMPLE
 
-** C++
+* C++
 
-*** sc
+We also can use C++ to create emacs module.
 
-[[file:cpp/sc/sc-core.cpp][sc-core.cpp]] implements simple trim function like [[https://github.com/magnars/s.el][s.el]] does,
-currently I only implement following function
+** sc
 
-- sc-trim-left
-- sc-trim-right
-- sc-trim
+ [[file:cpp/sc/sc-core.cpp][sc-core.cpp]] implements simple trim function like [[https://github.com/magnars/s.el][s.el]] does,
+ currently I only implement following function
 
-The benchmark is worse than [[https://github.com/magnars/s.el][s.el]].
+ - sc-trim-left
+ - sc-trim-right
+ - sc-trim
 
-#+BEGIN_EXAMPLE
-calculating: s-trim-left
-Elapsed time: 0.000780s
+ The benchmark is worse than [[https://github.com/magnars/s.el][s.el]].
 
-calculating: sc-trim-left
-Elapsed time: 0.044819s
+ #+BEGIN_EXAMPLE
+ calculating: s-trim-left
+ Elapsed time: 0.000780s
 
-calculating: s-trim-right
-Elapsed time: 0.008290s
+ calculating: sc-trim-left
+ Elapsed time: 0.044819s
 
-calculating: sc-trim-right
-Elapsed time: 0.120419s (0.022611s in 1 GCs)
+ calculating: s-trim-right
+ Elapsed time: 0.008290s
 
-calculating: s-trim
-Elapsed time: 0.007935s
+ calculating: sc-trim-right
+ Elapsed time: 0.120419s (0.022611s in 1 GCs)
 
-calculating: sc-trim
-Elapsed time: 0.127986s
-#+END_EXAMPLE
+ calculating: s-trim
+ Elapsed time: 0.007935s
 
-** Reference
+ calculating: sc-trim
+ Elapsed time: 0.127986s
+ #+END_EXAMPLE
+
+* Reference
 
 ~[1]~ [[https://github.com/jwiegley/emacs/blob/54617ada51e49af04f0c3f609e724aafcaf0df16/modules/mod-test/mod-test.c][emacs/modules/mod-test/mod-test.c]]
 
