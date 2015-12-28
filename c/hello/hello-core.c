@@ -20,6 +20,9 @@
 #include <assert.h>
 #include <emacs-module.h>
 
+//`plugin_is_GPL_compatible' indicates that its code is released under the GPL
+// or compatible license; Emacs will refuse to load modules that don't export
+// such a symbol.
 int plugin_is_GPL_compatible;
 
 const char *
@@ -35,6 +38,7 @@ Fcall_hello(emacs_env *env, ptrdiff_t nargs, emacs_value args[], void *data)
         return env->make_string(env, str, strlen(str));
 }
 
+/* Module init function.  */
 int
 emacs_module_init(struct emacs_runtime *ert)
 {
@@ -42,16 +46,16 @@ emacs_module_init(struct emacs_runtime *ert)
 
         emacs_value hellofn = env->make_function(env, 0, 0, Fcall_hello, "return hello string", NULL);
 
-        // Add emacs-lisp function `hello-c',
-        // eq: (fset 'hello-c '(lambda () "Hello Emacs"))
+        // Bind NAME to FUN.
+        // (fset 'hello-c '(lambda () "Hello Emacs"))
         emacs_value Qfset = env->intern(env, "fset");
         emacs_value Qsym = env->intern(env, "hello-c");
         emacs_value fset_args[] = { Qsym, hellofn };
 
         env->funcall(env, Qfset, 2, fset_args);
 
-        // provide this lib
-        // eq: (provide 'hello-core)
+        // Provide FEATURE to Emacs.
+        // (provide 'hello-core)
         emacs_value Qfeat = env->intern(env, "hello-core");
         emacs_value Qprovide = env->intern(env, "provide");
         emacs_value provide_args[] = { Qfeat };

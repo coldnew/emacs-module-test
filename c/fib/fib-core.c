@@ -19,6 +19,9 @@
 #include <assert.h>
 #include <emacs-module.h>
 
+//`plugin_is_GPL_compatible' indicates that its code is released under the GPL
+// or compatible license; Emacs will refuse to load modules that don't export
+// such a symbol.
 int plugin_is_GPL_compatible;
 
 static intmax_t
@@ -55,9 +58,9 @@ Fcall_fib_loop_c(emacs_env *env, ptrdiff_t nargs, emacs_value args[], void *data
         return env->make_integer(env, fib_loop(env->extract_integer(env, args[0])));
 }
 
-/* Lisp utilities for easier readability (simple wrappers).  */
+// Lisp utilities for easier readability (simple wrappers).
 
-/* Provide FEATURE to Emacs.  */
+// Provide FEATURE to Emacs.
 static void
 provide (emacs_env *env, const char *feature)
 {
@@ -68,7 +71,7 @@ provide (emacs_env *env, const char *feature)
         env->funcall (env, Qprovide, 1, args);
 }
 
-/* Bind NAME to FUN.  */
+// Bind NAME to FUN.
 static void
 bind_function (emacs_env *env, const char *name, emacs_value Sfun)
 {
@@ -79,7 +82,7 @@ bind_function (emacs_env *env, const char *name, emacs_value Sfun)
         env->funcall (env, Qfset, 2, args);
 }
 
-/* Module init function.  */
+// Module init function.
 int
 emacs_module_init(struct emacs_runtime *ert)
 {
