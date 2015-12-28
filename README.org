@@ -10,7 +10,7 @@ This is my test area for upcomming emacs25's =dynamic module= feature.
 
 *** hello - return string from function
 
-[[file:c/hello/hello-core.c]] is a really simple implement for dynamie module,
+[[file:c/hello/hello-core.c][hello-core.c]] is a really simple implement for dynamie module,
 
 it just implement a C version of follwoing function.
 
@@ -21,7 +21,7 @@ it just implement a C version of follwoing function.
 
 *** fib
 
-[[file:c/fib/fib-core.c]] implement recursive and loop version of fibonacci
+[[file:c/fib/fib-core.c][fib-core.c]] implement recursive and loop version of fibonacci
 function, I also add the emacs-lisp version to compare the benchmark.
 
 You can use
@@ -50,7 +50,7 @@ Elapsed time: 0.002424s
 
 *** sc
 
-[[file:cpp/sc/sc-core.cpp]] implements simple trim function like [[https://github.com/magnars/s.el][s.el]] does,
+[[file:cpp/sc/sc-core.cpp][sc-core.cpp]] implements simple trim function like [[https://github.com/magnars/s.el][s.el]] does,
 currently I only implement following function
 
 - sc-trim-left
@@ -85,6 +85,6 @@ Elapsed time: 0.127986s
 
 ~[2]~ https://lists.gnu.org/archive/html/emacs-devel/2015-02/msg00960.html
 
-~[3]~[[http://syohex.hatenablog.com/entry/2015/12/16/185458][ejectで學ぶ Dynamic module 機能]]
+~[3]~ [[http://syohex.hatenablog.com/entry/2015/12/16/185458][ejectで學ぶ Dynamic module 機能]]
 
 ~[4]~ [[http://qiita.com/syohex/items/fa71f1c61107b5e30c43][Emacsに mrubyを組み込んでみた]]

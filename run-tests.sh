@@ -4,7 +4,7 @@
 export EMACS_ROOT=$(pwd)/modules/emacs
 export EMACS=$(pwd)/emacs/bin/emacs
 
-P=$(PWD)
+P=$(pwd)
 
 # Test for C code
 cd c && make && cd $P
