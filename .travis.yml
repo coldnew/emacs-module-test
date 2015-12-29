@@ -1,5 +1,5 @@
 language: c
-sudo: true
+sudo: false
 compiler:
   - gcc
 branches:
@@ -9,6 +9,7 @@ addons:
   apt:
     packages:
       - gcc-multilib
+      - g++-multilib
       - build-essential
       - autoconf
       - automake
