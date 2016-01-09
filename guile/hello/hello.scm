@@ -1,0 +1,2 @@
+(define (hello)
+  "Hello Emacs")

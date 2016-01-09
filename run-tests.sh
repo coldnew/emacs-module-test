@@ -7,7 +7,10 @@ export EMACS=$(pwd)/emacs/bin/emacs
 P=$(pwd)
 
 # Test for C code
-cd c && make && cd $P
+(cd c && make)
 
 # Test for C++ code
-cd cpp && make && cd $P
+(cd cpp && make)
+
+# Test for Guile
+(cd guile && make)
