@@ -29,6 +29,7 @@ addons:
       - libxml2-dev
       - libatk-dev
       - libcairo-dev
+      - guile2.0-dev
 script:
-  - ./build-emacs.sh
+  - ./build-emacs.sh > /dev/null 2>&1
   - ./run-tests.sh
