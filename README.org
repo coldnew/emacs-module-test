@@ -83,6 +83,19 @@ We also can use C++ to create emacs module.
  Elapsed time: 0.127986s
  #+END_EXAMPLE
 
+* Guile
+
+  Calling guile code from dynamic modules.
+
+** hello
+
+[[file:guile/hello/hello-core.c][hello-core.c]] implement to call guile's hello function like
+
+#+BEGIN_SRC scheme
+  (define (hello)
+    "Hi")
+#+END_SRC
+
 * Reference
 
 ~[1]~ [[https://github.com/jwiegley/emacs/blob/54617ada51e49af04f0c3f609e724aafcaf0df16/modules/mod-test/mod-test.c][emacs/modules/mod-test/mod-test.c]]
